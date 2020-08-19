@@ -5,7 +5,7 @@
         <tr>
             <td>Title</td>
             <td>Description</td>
-            <td>Placeholder</td>
+            <td colspan="3">Placeholder</td>
         </tr>
     </thead>
     <tbody>
@@ -13,8 +13,12 @@
         <tr>
             <td><%= article.title %></td>
             <td><%= article.description %></td>
-            <td>Placeholder</td>
+            <td><%= link_to 'Show', article_path(article) %></td>
+            <td><%= link_to 'Edit', edit_article_path(article) %></td>
+            <td><%= link_to 'Delete', article_path(article), method: :Delete, data: { confirm:"Are you sure?" } %></td>
         </tr>
         <% end %>
     </tbody>
-</table>
+</table><br>
+
+<%= button_to 'Create a new article' , new_article_path, method: :get %>
